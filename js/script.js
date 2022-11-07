@@ -1,8 +1,4 @@
 
-
-
-// MILESTONE 2:
-// Stampare le stesse informazioni su DOM sottoforma di stringhe
 // BONUS 1:
 // Trasformare la stringa foto in una immagine effettiva
 // BONUS 2:
@@ -50,4 +46,11 @@ const arrPeople = [
 for (let i = 0; i<arrPeople.length; i++ ){
     console.log(`Membro del team ${i}: ${arrPeople[i].name}, ${arrPeople[i].role}, ${arrPeople[i].foto}`)
     eleContainer.innerHTML+=`<div>Membro del team ${i}: ${arrPeople[i].name}, ${arrPeople[i].role}, ${arrPeople[i].foto}</div>`
+}
+
+for (let i=0; i <arrPeople.length;i++){
+    const eleImg=document.createElement('img');
+    eleImg.src=arrPeople[i].foto;
+    eleImg.classList.add('slider-img');
+    eleContainer.append(eleImg);
 }
