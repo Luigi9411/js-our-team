@@ -43,14 +43,21 @@ const arrPeople = [
     },
 ]
 
-for (let i = 0; i<arrPeople.length; i++ ){
-    console.log(`Membro del team ${i}: ${arrPeople[i].name}, ${arrPeople[i].role}, ${arrPeople[i].foto}`)
-    eleContainer.innerHTML+=`<div>Membro del team ${i}: ${arrPeople[i].name}, ${arrPeople[i].role}, ${arrPeople[i].foto}</div>`
+const eleCards = document.querySelector('.cards');
+	
+arrPeople.forEach(objPerson => eleCards.innerHTML += generateCard(objPerson));
+
+
+function generateCard(obj) {
+	return `
+		<div class="card">
+			<div class="content">
+				<img src="img/${obj.foto}" alt="${obj.name}">
+				<h2 class="fs-5">${obj.name}</h2>
+				<h3 class="fs-6">${obj.role}</h3>
+			</div>
+		</div>
+		`;
 }
 
-for (let i=0; i <arrPeople.length;i++){
-    const eleImg=document.createElement('img');
-    eleImg.src=arrPeople[i].foto;
-    eleImg.classList.add('slider-img');
-    eleContainer.append(eleImg);
-}
+
